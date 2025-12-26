@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momotaro - Virsikupoiss</title>
+    <style>
+        /* 全体設定：浮世絵が映える黒背景 */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0d0d0d;
+            color: #f5f5f5;
+            font-family: 'Hiragino Mincho ProN', 'MS PMincho', serif;
+            overflow: hidden;
+        }
+
+        /* 横スワイプのコンテナ */
+        .book {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            height: 100vh;7`
+            }
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* 各ページの枠組み */
+        .page {
+            flex: 0 0 100vw;
+            width: 100vw;
+            height: 100vh;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        /* イラスト画像：浮世絵の質感を出す */
+        .page img {
+            width: 95%;
+            max-width: 550px;
+            max-height: 55vh;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0 0 25px rgba(255, 200, 100, 0.2);
+            border: 3px solid #222;
+            background-color: #1a1a1a;
+        }
+
+        /* テキストボックス：和紙のような質感 */
+        .text-box {
+            width: 90%;
+            max-width: 600px;
+            margin-top: 25px;
+            background: rgba(245, 245, 240, 0.95); /* 和紙の色 */
+            color: #222;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-left: 8px solid #b33939; /* アクセントの赤 */
+        }
+
+        .et {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: #b33939;
+            margin: 0 0 10px 0;
+            line-height: 1.4;
+        }
+
+        .jp {
+            font-size: 0.9rem;
+            color: #444;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* ページ番号 */
+        .page-num {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 0.8rem;
+            color: #666;
+            letter-spacing: 2px;
+        }
+
+        /* スワイプを促すアニメーション */
+        .hint {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            color: #888;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 0.2; }
+            50% { opacity: 1; }
+            100% { opacity: 0.2; }
+        }
+
+        /* 表紙専用タイトル */
+        .cover-title {
+            font-size: 2.2rem;
+            color: #e67e22;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 0px #000;
+            letter-spacing: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="book">
+    <!-- 表紙 -->
+    <section class="page">
+        <h1 class="cover-title">Momotaro</h1>
+        <img src="OIG3.jpg" alt="Virsikupoiss">
+        <div class="text-box" style="text-align: center; border-left: none; border-bottom: 8px solid #b33939;">
+            <p class="et">Virsikupoiss</p>
+            <p class="jp">エストニア語で読む「桃太郎」</p>
+        </div>
+        <div class="hint">スワイプして物語を始める ＞</div>
+    </section>
+
+    <!-- 1. 始まりの風景 -->
+    <section class="page">
+        <img src="OIG4.LOp4YlxjyMxKMc6I.jpg" alt="Scene 1">
+        <div class="text-box">
+            <p class="et">Elasid kord vanaisa ja vanaema. Vanaisa läks mägedesse puid raiuma ja vanaema läks jõe äärde riideid pesema.</p>
+            <p class="jp">むかしむかし、あるところに、おじいさんとおばあさんが住んでいました。おじいさんは山へしば刈りに、おばあさんは川へ洗濯に行きました。</p>
+        </div>
+        <span class="page-num">1 / 15</span>
+    </section>
+
+    <!-- 2. 巨大な桃 -->
+    <section class="page">
+        <img src="OIG4.jpg" alt="Scene 2">
+        <div class="text-box">
+            <p class="et">Kui vanaema pesu pesi, uhtus jõgi kohale hiiglasliku virsiku. "Oi, kui suur virsik! Plirts-plärts, plirts-plärts!"</p>
+            <p class="jp">おばあさんが洗濯をしていると、川上から大きな桃が流れてきました。「まあ、なんて大きな桃かしら！ ドンブラコ、ドンブラコ！」</p>
+        </div>
+        <span class="page-num">2 / 15</span>
+    </section>
+
+    <!-- 3. 桃太郎の誕生 -->
+    <section class="page">
+        <img src="OIG1.jpg" alt="Scene 3">
+        <div class="text-box">
+            <p class="et">Kui nad tahtsid virsikut pooleks lõigata, hüppas sealt välja tubli poiss! "Ohhoo, milline vapper beebi!" Nad panid talle nimeks Momotaro.</p>
+            <p class="jp">おじいさんとおばあさんが桃を割ろうとすると、中から元気な男の子が飛び出しました。「わあ、元気な赤ちゃんいだ！」二人は桃太郎と名付けました。</p>
+        </div>
+        <span class="page-num">3 / 15</span>
+    </section>
+
+    <!-- 4. 厳しい修行 -->
+    <section class="page">
+        <img src="OIG2.jpg" alt="Scene 4">
+        <div class="text-box">
+            <p class="et">Momotaro sõi palju ning kasvas kiiresti suureks ja tugevaks. Iga päev tõstis ta raskeid kive ja harjutas hoolega mõõgavõitlust.</p>
+            <p class="jp">桃太郎はモリモリ食べて、あっという間に大きく、強くなりました。毎日、重い岩を持ち上げて、剣の練習を一生懸命しました。</p>
+        </div>
+        <span class="page-num">4 / 15</span>
+    </section>
+
+    <!-- 5. 旅立ちの決意 -->
+    <section class="page">
+        <img src="OIG4 (1).jpg" alt="Scene 5">
+        <div class="text-box">
+            <p class="et">"Vanaisa, vanaema. Ma lähen Kurjade Kolli Saarele ja alistan halvad kollid!" ütles Momotaro julgelt.</p>
+            <p class="jp">「おじいさん、おばあさん。僕は鬼ヶ島へ行って、悪い鬼を退治してきます！」桃太郎は勇気を持って言いました。</p>
+        </div>
+        <span class="page-num">5 / 15</span>
+    </section>
+
+    <!-- 6. 魔法のきびだんご -->
+    <section class="page">
+        <img src="OIG3 (1).jpg" alt="Scene 6">
+        <div class="text-box">
+            <p class="et">Vanaema tegi talle maailma parimad kibi-dango pallid. "Võta need kaasa. Need annavad sulle palju jõudu."</p>
+            <p class="jp">おばあさんは、日本一の「きびだんご」を作ってくれました。「これを持ってお行き。力が湧いてくるよ。」</p>
+        </div>
+        <span class="page-num">6 / 15</span>
+    </section>
+
+    <!-- 7. イヌとの約束 -->
+    <section class="page">
+        <img src="OIG1 (1).jpg" alt="Scene 7">
+        <div class="text-box">
+            <p class="et">Teel kohtas ta koera. "Momotaro, kuhu sa lähed? Anna mulle üks kibi-dango ja ma tulen sinuga kaasa!"</p>
+            <p class="jp">村を出ると、イヌがやってきました。「桃太郎さん、どこへ行くの？ きびだんごを一つくれたら、お供します！」</p>
+        </div>
+        <span class="page-num">7 / 15</span>
+    </section>
+
+    <!-- 8. サルとの出会い -->
+    <section class="page">
+        <img src="OIG2 (1).jpg" alt="Scene 8">
+        <div class="text-box">
+            <p class="et">Järgmiseks kohtas ta metsas ahvi. "Võta mind ka kampa! Ma olen osav ronija." Momotaro andis ka ahvile ühe palli.</p>
+            <p class="jp">次に山の中でサルに会いました。「僕も仲間に入れてよ！ 木登りは得意なんだ。」桃太郎はサルにも団子をあげました。</p>
+        </div>
+        <span class="page-num">8 / 15</span>
+    </section>
+
+    <!-- 9. キジが空から -->
+    <section class="page">
+        <img src="OIG2.6hKAKEQ6uQ7_.jpg" alt="Scene 9">
+        <div class="text-box">
+            <p class="et">Viimasena lendas taevast alla faasan. "Ma otsin kollid taevast üles!" Nüüd oli neil koos maailma tugevaim meeskond.</p>
+            <p class="jp">最後に、美しいキジが空から降りてきました。「僕が空から鬼を見つけるよ！」これで、最強のチームが揃いました。</p>
+        </div>
+        <span class="page-num">9 / 15</span>
+    </section>
+
+    <!-- 10. 荒波を越えて -->
+    <section class="page">
+        <img src="OIG3 (2).jpg" alt="Scene 10">
+        <div class="text-box">
+            <p class="et">Momotaro ja tema sõbrad sõitsid väikese paadiga üle tormise mere. "Sõbrad, saar on juba lähedal. Kas olete valmis?"</p>
+            <p class="jp">桃太郎たちは小さな舟に乗って、荒い海を渡りました。「みんな、鬼ヶ島はもうすぐだ。準備はいいか！」</p>
+        </div>
+        <span class="page-num">10 / 15</span>
+    </section>
+
+    <!-- 11. 鬼ヶ島の門 -->
+    <section class="page">
+        <img src="OIG4 (2).jpg" alt="Scene 11">
+        <div class="text-box">
+            <p class="et">Viimaks jõudsid nad saarele. Nende ees seisis hiiglaslik must värav. "Koer, ründa väravat! Ahv, roni üle müüri!"</p>
+            <p class="jp">ついに鬼ヶ島に着きました。目の前には、真っ黒で巨大な門がそびえ立っています。「イヌは門を叩け、サルは塀を登れ！」</p>
+        </div>
+        <span class="page-num">11 / 15</span>
+    </section>
+
+    <!-- 12. 激しい戦い -->
+    <section class="page">
+        <img src="OIG4..jpg" alt="Scene 12">
+        <div class="text-box">
+            <p class="et">"Rünnakule!" nad tungisid kolli lossi. Koer hammustas, ahv küünistas ja faasan nokkis halbu kolle.</p>
+            <p class="jp">「突撃だー！」桃太郎たちは鬼の城へ飛び込みました。犬は噛みつき、猿はひっかき、キジは突っつきました。</p>
+        </div>
+        <span class="page-num">12 / 15</span>
+    </section>
+
+    <!-- 13. 鬼の大将との決闘 -->
+    <section class="page">
+        <img src="OIG3 (3).jpg" alt="Scene 13">
+        <div class="text-box">
+            <p class="et">Momotaro võitles kõige suurema punase kolliga. "Ei! Jaa!" Momotaro mõõk välkus ja lõpuks ta võitis kolli.</p>
+            <p class="jp">桃太郎は一番大きな赤鬼と戦いました。「えい！ やあ！」桃太郎の剣が光り、ついに鬼を倒しました。</p>
+        </div>
+        <span class="page-num">13 / 15</span>
+    </section>
+
+    <!-- 14. 鬼の降参 -->
+    <section class="page">
+        <img src="OIG2 (2).jpg" alt="Scene 14">
+        <div class="text-box">
+            <p class="et">Kollid nutsid ja palusid andeks. "Palun vabandust! Me anname kõik aarded tagasi. Me ei tee enam kunagi paha."</p>
+            <p class="jp">鬼たちは涙を流して謝りました。「ごめんなさい！ 宝物は全部返します。もう悪いことはしません。」</p>
+        </div>
+        <span class="page-num">14 / 15</span>
+    </section>
+
+    <!-- 15. 幸せな帰り道 -->
+    <section class="page">
+        <img src="OIG1.beLaWxAcz0Qi.jpg" alt="Scene 15">
+        <div class="text-box">
+            <p class="et">Momotaro naasis külla koos paljude aaretega. Vanaisa ja vanaema olid väga õnnelikud. Nad elasid õnnelikult elu lõpuni.</p>
+            <p class="jp">桃太郎たちは宝物を積んで村に帰りました。おじいさんとおばあさんは大喜び。みんなで幸せに暮らしました。</p>
+        </div>
+        <span class="page-num">15 / 15</span>
+    </section>
+</div>
+
+</body>
+</html>
